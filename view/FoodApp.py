@@ -6,6 +6,7 @@ class LoginSystem:
         password=input("Password :   ")
         user=UserManager.FindUser(mailid,password)
         if user is not None:
+            print("Login Succesfully...")
             pass
         else:
             print("Invalid MailId/Password.... Please Retry")
@@ -20,17 +21,18 @@ class LoginSystem:
     def GuestLogin(self):
         pass
     def ValidateOption(self,option):
-        if option==1:
-            self.Login()
-        elif option==2:
-            self.Register()
-        elif option==3:
-            self.GuestLogin()
-        elif option==4:
-            print("Thank you for using our Food App...🤝")
-            exit()
-        else:
-            print("Invalid Choice.. Please Retry")
+        getattr(self,option)()
+        # if option==1:
+        #     self.Login()
+        # elif option==2:
+        #     self.Register()
+        # elif option==3:
+        #     self.GuestLogin()
+        # elif option==4:
+        #     print("Thank you for using our Food App...🤝")
+        #     exit()
+        # else:
+        #     print("Invalid Choice.. Please Retry")
 class FoodApp:
     LoginOptions={1:"Login",2:"Register",3:"Guest",4:"Exit"}
     @staticmethod
@@ -43,8 +45,9 @@ class FoodApp:
             print()
             try:
                 choice=int(input("Please Enter your Choice: "))
-                loginSystem.ValidateOption(choice)
-            except:
+                # loginSystem.ValidateOption(choice)
+                loginSystem.ValidateOption(FoodApp.LoginOptions[choice])
+            except (ValueError,KeyError):
                 print("Invalid input.. Please Enter the Valid Choice")
 
 
