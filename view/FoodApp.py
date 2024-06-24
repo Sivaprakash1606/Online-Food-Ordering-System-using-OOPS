@@ -1,5 +1,7 @@
 from Models.User import User
 from Models.UserManager import UserManager
+from Contollers.MainMenu import MainMenu
+
 class LoginSystem:
     def Login(self):
         mailid=input("Email Id : ")
@@ -7,7 +9,9 @@ class LoginSystem:
         user=UserManager.FindUser(mailid,password)
         if user is not None:
             print("Login Succesfully...")
-            pass
+            menu=MainMenu()
+            menu.Start()
+
         else:
             print("Invalid MailId/Password.... Please Retry")
 
@@ -53,5 +57,5 @@ class FoodApp:
 
 
 
-            
+
 
