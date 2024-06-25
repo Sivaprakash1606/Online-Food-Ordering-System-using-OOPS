@@ -7,7 +7,7 @@ class MainMenu:
             res.DisplayItem(i)
             # print(f">> {res.Name}=>Rating:{res.Rating}")
         choice=int(input("Please Select the Restaurant : "))
-        res=self.__FoodManager.Restaurants[choice]
+        res=self.__FoodManager.Restaurants[choice-1]
         self.ShowFoodMenus(res.FoodMenus)
 
     def ShowFoodItems(self,foodItems=None):
@@ -16,6 +16,7 @@ class MainMenu:
                 foodItem.DisplayItem(1)
             choices=list(map(int,input("Please choose your Food item (eg 1,2) : ").split(',')))
             cart=Cart(foodItems,choices)
+            cart.ProcessOrder(foodItems)
         else:
             pass
 
@@ -56,5 +57,3 @@ class MainMenu:
                 getattr(self,value)()
             except (ValueError,KeyError):
                 print("Invalid input..Please Enter the Valid Choice")
-a=MainMenu()
-a.Start()
