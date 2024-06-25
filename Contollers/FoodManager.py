@@ -28,9 +28,10 @@ class FoodManager:
         res3 = Restaurant("KFC", 5,"Chennai", 15)
         res3.FoodMenus = [FoodMenus[0], FoodMenus[1]]
         return [res1,res2,res3]
-
-
-
+    def FindRestaurant(self,name):
+        for res in self.Restaurants:
+            if res.Name == name:
+                return res
 
 
 

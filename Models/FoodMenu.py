@@ -14,3 +14,7 @@ class FoodMenu(AbstractItem):
                 print("Invalid FoodItem..")
                 return
         self.__FoodItems=items
+
+    def DisplayItem(self,start):
+        print(f"{start} => {self.Name}")
+

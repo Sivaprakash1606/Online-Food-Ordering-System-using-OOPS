@@ -18,3 +18,5 @@ class Restaurant(AbstractItem):
                 print("Invalid FoodMenu..")
                 return
         self.__FoodMenu = items
+    def DisplayItem(self,start):
+        print(f">>{start} => {self.Name}=>Rating:{self.Rating}")
